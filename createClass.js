@@ -83,6 +83,7 @@ define(function(require, exports, module) {
         /**
             @description avoid global traversal DOM tree
             @param {String} selector CSS selector
+            @return {DOM} expected DOM object
             @example
                 var li = classA.$('li');
         **/
