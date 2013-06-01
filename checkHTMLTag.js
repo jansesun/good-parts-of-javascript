@@ -17,10 +17,12 @@ function checkHTMLTags(str, opt) {
     console.time('checkHTMLTag');
     tags = ['div', 'a', 'span', 'p', 'li', 'ul'];
 	opt = opt || {},
-    isMatched = true;
-	foreach(tags, function(o, i){
+    isMatched = true,
+    i, len = tags.length;
+	for(i = 0; i < len; ++i){
+        var o = tags[i],
         // the regular expression of start tags
-        var regStart = new RegExp(['<', o ,'\\b[^>]*>'].join(''), 'ig'),
+        regStart = new RegExp(['<', o ,'\\b[^>]*>'].join(''), 'ig'),
         // the regular expression of close tags
         regEnd = new RegExp(['<\/', o, '>'].join(''), 'ig'),
         // counters of start tags and close ones
@@ -29,7 +31,7 @@ function checkHTMLTags(str, opt) {
         startTags, endTags;;
         // break if no tags
         if(!curStr.match(/<[^>]*>/)) {
-        	return 1;
+        	break;
         }
 		// replace and count start tags
 		startTags = curStr.replace(regStart) || [];
@@ -46,7 +48,7 @@ function checkHTMLTags(str, opt) {
 		// set flag and break if unmatched
 		if(startCnt != endCnt) {
             isMatched = false;
-            return 1;
+            break;
 		}
 	});
     return isMatched;
