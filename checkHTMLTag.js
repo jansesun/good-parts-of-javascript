@@ -51,5 +51,6 @@ function checkHTMLTags(str, opt) {
             break;
 		}
 	});
+	// return result
     return isMatched;
 }
