@@ -44,7 +44,7 @@ var func2 = function() {
 	}, 100);
 };
 //print 'func2' after print 'func1'
-//create example
+//correct example
 func1(3, function(){
 	func2();
 });
