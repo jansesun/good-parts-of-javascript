@@ -16,7 +16,7 @@ var func2 = function() {
 	}, 100);
 };
 //print 'func2' after print 'func1'
-//bad example
+//correct example
 func1(3);
 setTimeout(function() {
 	func2();
@@ -44,7 +44,7 @@ var func2 = function() {
 	}, 100);
 };
 //print 'func2' after print 'func1'
-//bad example
+//create example
 func1(3, function(){
 	func2();
 });
