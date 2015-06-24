@@ -53,7 +53,7 @@ var getLastDay = function(opt) {
 **/
 var getLastDay = function(opt) {
      // get current date
-    var curDate = new Date(),
+    var curDate = new Date();
     opt = opt || {},
     
     // given month
@@ -73,6 +73,33 @@ var getLastDay = function(opt) {
     curDate.setTime(curDate.getTime() - ONEDAY);
 
     // return the lastDay of given month
+    return curDate.getDate();
+};
+/**
+    @description get last day of given month
+    @idea get the yesterday of the first day of next month by setDate(0)
+    @param {Object} opt optional parameters
+    @config {Number (started from 0)} month given month, with current month as default value
+    @config {Number} year given year, with current year as default value
+    @return (Number) last day of given month
+    @example 
+        var lastDay = getLastDay({
+            month: 0,
+            year: 2013
+        }); // lastDay = 31
+        var lasrDay = getLastDay();
+**/
+var getLastDay = function(opt) {
+    var curDate = new Date(), month;
+    opt = opt || {};
+    // given month
+    month = opt.month !== undefined ? opt.month : curDate.getMonth();
+    if(opt.year !== undefined) {
+        curDate.setYear(opt.year);
+    }
+    curDate.setMonth(month + 1);
+    // set curDate to the day before the first day of next month
+    curDate.setDate(0);
     return curDate.getDate();
 };
 /**
