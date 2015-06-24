@@ -53,11 +53,11 @@ var getLastDay = function(opt) {
 **/
 var getLastDay = function(opt) {
      // get current date
-    var curDate = new Date();
-    opt = opt || {},
+    var curDate = new Date(), month;
+    opt = opt || {};
     
     // given month
-    month = isUndefined(opt.month)? curDate.getMonth() : opt.month,
+    month = isUndefined(opt.month)? curDate.getMonth() : opt.month;
 
     // milliseconds of one day
     ONEDAY = 86400000;
