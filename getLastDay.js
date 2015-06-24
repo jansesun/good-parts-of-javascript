@@ -27,7 +27,7 @@ var getLastDay = function(opt) {
     year = opt.year || curDate.getYear(),
     
     // given month
-    month = isUndefined(opt.month)? curDate.getMonth() : opt.month,
+    month = isUndefined(opt.month)? curDate.getMonth() : opt.month;
     
     // 29 days in February of a leap year
     if(isLeap(year)) {
