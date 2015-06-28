@@ -22,3 +22,11 @@ String.prototype.endWith = String.prototype.endWith || function(str) {
 String.prototype.includes = String.prototype.includes || function(str) {
     return !!~this.indexOf(str);
 };
+/**
+ * @description 重复字符串
+ * @param {Number} n 重复次数
+ * @return {String}
+ */
+String.prototype.repeat = String.prototype.repeat || function(n) {
+    return Array(n + 1).join(this);  
+};
