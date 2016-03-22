@@ -8,13 +8,10 @@
  */
 function replaceClass(el, newClass, oldClass) {
   var className = el.className,
-		arr = oldClass.split(' '),
-		i, len = arr.length;
-	for(i = 0; i < len; ++i) {
-		className = className.replace(new RegExp('\\b' + arr[i] + '\\b'), '');
-	}
+	oldClass = oldClass.split(/\s+/).join('|');
+	className = className.replace(new RegExp('(?:\\s|^)(?:' + oldClass + ')(?=\\s|$)', 'g'), '');
 	className = className.replace(/\s+$/, '');
-	if(className.replace(new RegExp('\\b' + newClass + '\\b'), ''), '') == className) {
+	if(className.replace(new RegExp('(?:\\s|^)' + newClass + '(?:\\s|$)'), '') == className) {
 		el.className = className + ' ' + newClass;
 	}
-}
+};
